@@ -1,7 +1,3 @@
-it1 = iter([1,3,5,21,25,22])
-it2 = iter([1,5,7,10,11,52])
-
-
 class comparisonMatching:
     def __init__(self, it1, it2):
         self.it1 = it1
@@ -36,6 +32,9 @@ class comparisonMatching:
         except StopIteration:
             return False
 
+
+it1 = iter([1, 3, 5, 21, 25, 22])
+it2 = iter([1, 5, 7, 10, 11, 52])
 
 test = comparisonMatching(it1, it2)
 hn = test.has_next()
