@@ -11,29 +11,28 @@ class comparisonMatching:
         self.output = []
 
     def next(self):
+        # Returns an int if it can, or None
         if self.val1 > self.val2:
-            print 'gt'
             self.val2 = self.it2.next()
         elif self.val1 < self.val2:
-            print 'lt'
-            print 'val1 {}'.format( self.val1)
             self.val1 = self.it1.next()
         elif self.val1 == self.val2:
-            print 'match'
             match = self.val1
             self.val1 = self.it1.next()
             return match
-        else:
-            print 'None'
 
     def has_next(self):
+        #  Returns a bool.
+        #  self.matched_val will be the self.val1 which will be equal to self.val2
+        #  Calls itself recursively so that it will always be a bool
+        #  Returns false when the iterators cant iterate any longer.
         try:
             self.matched_val = self.next()
             if self.matched_val:
                 self.output.append(self.matched_val)
+                return True
             else:
-                self.has_next()
-            return True  
+                return self.has_next()
         except StopIteration:
             return False
 
